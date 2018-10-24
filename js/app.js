@@ -105,12 +105,22 @@ let result=accum;
 
           for(let i=0;i<mas.length;i++){
                 result =func.call(null,result,mas[i],i,mas);
-                console.log(result);
-            }
+                console.log(result);            }
 
     return result;
         }
         console.log(reduce([1,2,3,4,5], function(result, num) {
             return result + num;
         }, 0));
+
+        ////////////////////////////////
+
+    function reverse(mas) {
+        let reverseMas=[];
+        for(let i=mas.length-1;i>=0;i--){
+            reverseMas.push(mas[i]);
+        }
+        return reverseMas;
+    }
+    console.log(reverse([1,2,3,4,5,6,7,8]));
 })();
