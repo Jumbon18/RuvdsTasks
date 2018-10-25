@@ -16,7 +16,6 @@
     console.log("////////////////////////////////");
 
 
-
     function factorial(n) {
         if (n === 0) {
             return 1;
@@ -30,7 +29,6 @@
     console.log(factorial(5));
 
     console.log("////////////////////////////////");
-
 
 
     function isPrime(n) {
@@ -103,7 +101,6 @@
     console.log("////////////////////////////////");
 
 
-
     function reduce(mas, func, accum) {
         let result = accum;
 
@@ -133,50 +130,100 @@
 
     console.log("////////////////////////////////");
 
-    function indexOf(mas,n) {
+    function indexOf(mas, n) {
         let index;
-        for(let i=0;i<mas.length;i++){
-          if ( mas[i]===n){
-         index=i;
-          }
+        for (let i = 0; i < mas.length; i++) {
+            if (mas[i] === n) {
+                index = i;
             }
+        }
         return index;
 
     }
-    console.log(indexOf([1,2,10,4,5,6],10));
+
+    console.log(indexOf([1, 2, 10, 4, 5, 6], 10));
 
     console.log("////////////////////////////////");
 
-function isPalindrom(str) {
+    function isPalindrom(str) {
 
-    let result='';
-    let palinMas;
-    if(str===''){
-        result='yes';
+        let result = '';
+        let palinMas;
+        if (str === '') {
+            result = 'yes';
+            return result;
+        }
+
+        palinMas = str.split(" ").join("").toLowerCase();
+
+        for (let i = 0; i < palinMas.length; i++) {
+
+
+            if (palinMas[i] === palinMas[palinMas.length - 1 - i]) {
+                result = 'yes';
+            }
+            else {
+                result = 'no';
+                return result;
+            }
+
+        }
+
         return result;
     }
 
-palinMas=str.split(" ").join("").toLowerCase();
-
-for(let i=0;i<palinMas.length;i++){
-
-
-    if(palinMas[i]===palinMas[palinMas.length-1-i]){
-        result='yes';
-    }
-    else{
-        result='no';
-        return result;
-    }
-
-}
-
-    return result;
-}
-
-console.log(isPalindrom('A man a plan a canal Panama'));
+    console.log(isPalindrom('A man a plan a canal Panama'));
 
     console.log("////////////////////////////////");
 
+    function missing(mas) {
+        mas.sort(compareNumeric);
 
+        let maxEl;
+        let count = 1;
+
+        for(let i=0;i<mas.length;i++){ //нахожу максимальный элемент в массиве
+            maxEl=mas[0];
+            if(mas[i]>maxEl){
+                maxEl=mas[i];
+            }
+        }
+
+        for(let i=0; i<mas.length;i++){
+            if(count<=maxEl) {
+                if (mas[i] !== count) {
+                    console.log(count);
+                    return false;
+                }
+                count++;
+            }
+        }
+
+        return true;
+    }
+
+    console.log(missing([1,3,4,5]));
+
+    console.log("////////////////////////////////");
+
+   function isBalanced(str){
+       let leftBracket=0;
+       let rightBracket=0;
+       for(let i=0;i<str.length;i++){
+           if(str[i]==="{"){
+               leftBracket++;
+           }
+           if(str[i]==="}"){
+               rightBracket++;
+           }
+           if(rightBracket>leftBracket){
+               return false;
+           }
+       }
+       if(leftBracket===rightBracket){
+           return true;
+       }
+       return false;
+   }
+   console.log(isBalanced("{}{}"));
 })();
