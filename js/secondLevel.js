@@ -31,4 +31,45 @@ console.log(memoizeFib(20));
     console.log(memoizeFib(50));
 
     console.log("////////////////////////////////");
+    function isBalanced2(str) {
+        let figure={left:0,right:0};
+        let circle={left:0,right:0};
+        let square={left:0,right:0};
+        for(let i=0;i<str.length;i++){
+            switch (str[i]) {
+                case "{":
+                    figure.left++;
+                    break;
+                case "}":
+                    figure.right++;
+                    break;
+                case "(":
+                    circle.left++;
+                    break;
+                case ")":
+                    circle.right++;
+                    break;
+                case "[":
+                    square.left++;
+                    break;
+                case "]":
+                    square.right++;
+                    break;
+            }
+            if(circle.right>circle.left || square.right>square.left||figure.right>figure.left ){
+                console.log("Brakes are incorrect");
+                return false;
+            }
+
+
+        }
+        if(figure.left===figure.right && circle.left===circle.right && square.left===square.right ){
+            console.log("Brakes are correct");
+            return true;
+        }
+        return false;
+    }
+    console.log(isBalanced2('(foo { bar (baz) [boo] })'));
+    console.log("////////////////////////////////");
+
 })();
