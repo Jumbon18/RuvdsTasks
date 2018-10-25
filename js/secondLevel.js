@@ -72,4 +72,23 @@ console.log(memoizeFib(20));
     console.log(isBalanced2('(foo { bar (baz) [boo] })'));
     console.log("////////////////////////////////");
 
+
+    function uniq(mas) {
+        let uniqMas=[];
+        uniqMas.push(mas[0]);
+    for(let i=0;i<mas.length;i++){
+        for(let j=0;j<uniqMas.length;j++){
+            if(mas[i]===uniqMas[j]){
+                break;
+            }
+            else if(j===uniqMas.length-1){// в последнюю итерацию
+                uniqMas.push(mas[i]);
+            }
+        }
+    }
+    return uniqMas;
+}
+console.log(uniq([1, 4, 2, 2, 3, 4, 8]));
+    console.log("////////////////////////////////");
+
 })();
