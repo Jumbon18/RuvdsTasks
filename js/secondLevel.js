@@ -91,4 +91,51 @@ console.log(memoizeFib(20));
 console.log(uniq([1, 4, 2, 2, 3, 4, 8]));
     console.log("////////////////////////////////");
 
+
+    function intersection(mas1,mas2) {
+        let intersectionMas=[];
+        for(let i=0;i<mas1.length;i++){
+            for(let j=0;j<mas2.length;j++){
+                if(mas1[i]===mas2[j]){
+                    intersectionMas.push(mas1[i]);
+                }
+                else{
+                    console.log('на'+i +'итерации нет совпадений');
+                }
+            }
+        }
+        return intersectionMas;
+    }
+    console.log(intersection([1, 5, 4, 2], [7, 12]));
+
+    console.log("////////////////////////////////");
+
+    function sorte(items) { // Самая быстрая сортировка -ХОАРА O(N*LOG(N))
+            let tmp;
+            let i = 0;
+            let j = items.length - 1;
+        let pivot = items[ Math.floor(((items.length - 1)) / 2) ];// Ставим опорный элемент ,который находится по середине массива
+        if (items.length > 1) {// если массив > 1 сортировать массив , если же меньше то вернуть просто массив
+            while (i <= j) {
+                while (items[i] < pivot) { // пока элемент меньший опорного выполянть инкремент
+                    i++;
+                }
+                while (items[j] > pivot) { // пока элемент больше опорного выполнять декремент
+                    j--;
+                }
+                if (i <= j) { // выполняем перестановку i на j
+                    tmp = items[i];
+                    items[i] = items[j];
+                    items[j] = tmp;
+                    i++;
+                    j--;
+                }
+            }
+        }
+        return items;
+    }
+
+    console.log(sorte([1,2,3,4,5,6,7]));
+    console.log("////////////////////////////////");
+
 })();
